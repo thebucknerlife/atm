@@ -49,6 +49,7 @@ gem 'redis-rails'
 
 #for background tasks
 gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 # to test bg workers with unicorn on heroku
 gem 'unicorn'
