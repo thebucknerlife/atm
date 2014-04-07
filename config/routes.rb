@@ -6,6 +6,7 @@ Atm::Application.routes.draw do
     get   '/' => :index
     post  'new' => :new
     get   '/:id/matches' => :matches
+    post  '/pay' => :pay
   end
 
   scope '/matches', controller: :matches do

@@ -23,6 +23,14 @@ class UsersController < ApplicationController
     render json: { user: user.as_json.merge(matches: user.hosting_matches) }
   end
 
+  def pay
+    if FirebaseWorker.perform_async(params[:payor], params[:payee], params[:cool])
+      render json: { success: true }, status: 200
+    else
+      render json: { success: false }, status: 420
+    end
+  end
+
 private
 
   def user_params 

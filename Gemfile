@@ -50,6 +50,10 @@ gem 'redis-rails'
 #for background tasks
 gem 'sidekiq'
 
+# to test bg workers with unicorn on heroku
+gem 'unicorn'
+gem 'rails_12factor'
+
 #for seed data
 gem 'faker'
 
@@ -58,3 +62,6 @@ gem 'actionpack-action_caching'
 
 #for perf testing
 gem 'rack-mini-profiler'
+
+#for firebase worker
+gem 'httparty'
