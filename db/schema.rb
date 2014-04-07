@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140405173130) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "matches", force: true do |t|
     t.integer  "host_id"
     t.integer  "guest_id"
