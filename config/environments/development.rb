@@ -29,6 +29,4 @@ Atm::Application.configure do
 
   #enable caching
   config.action_controller.perform_caching = true
-
-  config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
 end
