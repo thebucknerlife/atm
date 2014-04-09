@@ -1,9 +1,14 @@
-#calculated from here: http://manuel.manuelles.nl/sidekiq-heroku-redis-calc/
+# calculated from here: http://manuel.manuelles.nl/sidekiq-heroku-redis-calc/
+# additional config options from sidekiq docs
 
 require 'sidekiq'
 
 Sidekiq.configure_client do |config|
-  config.redis = { :size => 2 }
+    config.redis = { 
+    :url => ENV['REDISCLOUD_URL'] || 'redis://localhost:6379', 
+    :namespace => 'sidekiq', 
+    :size => 2
+  }
 end
 
 Sidekiq.configure_server do |config|
@@ -11,5 +16,9 @@ Sidekiq.configure_server do |config|
   # concurrency value so you do not need to 
   # specify this. For this demo I do 
   # show it to understand the numbers
-  config.redis = { :size => 4 }
+  config.redis = { 
+    :url => ENV['REDISCLOUD_URL'] || 'redis://localhost:6379', 
+    :namespace => 'sidekiq', 
+    :size => 4
+  }
 end
